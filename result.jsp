@@ -1,26 +1,31 @@
 <%@ page language="java" %>
 <html>
 <head>
-    <title>Result</title>
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Employee Details</h2>
+<div class="result-box">
+    <h2>Employee Details</h2>
 
-<%
-    if (request.getAttribute("message") != null) {
-%>
-        <h3><%= request.getAttribute("message") %></h3>
-<%
-    } else {
-%>
-        <p>ID: <%= request.getAttribute("emp_id") %></p>
-        <p>Name: <%= request.getAttribute("emp_name") %></p>
-        <p>Department: <%= request.getAttribute("department") %></p>
-        <p>Salary: <%= request.getAttribute("salary") %></p>
-<%
-    }
-%>
+    <%
+        if (request.getAttribute("message") != null) {
+    %>
+        <p class="error"><%= request.getAttribute("message") %></p>
+    <%
+        } else {
+    %>
+        <p><b>ID:</b> <%= request.getAttribute("emp_id") %></p>
+        <p><b>Name:</b> <%= request.getAttribute("emp_name") %></p>
+        <p><b>Department:</b> <%= request.getAttribute("department") %></p>
+        <p><b>Salary:</b> ₹<%= request.getAttribute("salary") %></p>
+        <p class="success">Record fetched successfully!</p>
+    <%
+        }
+    %>
+
+</div>
 
 </body>
 </html>
